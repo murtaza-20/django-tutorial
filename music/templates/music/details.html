@@ -1,0 +1,18 @@
+{% extends 'music/base.html' %}
+{% block title %}Album Details - {{ album.album_title }} {% endblock %}
+{% block body %}
+    
+    <img src="{{ album.album_logo.url }}"/>
+    
+    <h1>{{ album.album_title }}</h1>
+    <h2>{{ album.artist }}</h2>
+    
+    {% for song in album.song_set.all %}
+        {{ song.song_title }}
+        {% if song.is_favourite %}
+            <img src="http://www.rw-designer.com/icon-image/136-16x16x32.png"/>
+        {% endif %}
+        <br>
+    {% endfor %}
+    
+{% endblock %}
